@@ -2,9 +2,17 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
+Parameters:
+  ENVIRONMENT:
+    Type: String
+    Default: dev
+  PROJECT:
+    Type: String
+
 Resources:
   Type: AWS::Serverless::Function
   Properties:
+    FunctionName: !Sub ${PROJECT}-${ENVIRONMENT}
     Handler: src/index.handler
     Runtime: nodejs10.x
     MemorySize: 128
