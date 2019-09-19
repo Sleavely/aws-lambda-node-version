@@ -1,4 +1,5 @@
 
-exports.handler = () => {
-  return process.version.split('v')[1]
+exports.handler = async () => {
+  const versionWithoutV = process.version.split('v')[1]
+  return versionWithoutV
 }
