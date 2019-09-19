@@ -1,3 +1,6 @@
+# skip Cloudformation/Lambda packages generated when deploying
+dist
+
 # Logs
 logs
 *.log
