@@ -17,6 +17,9 @@ deploy = aws cloudformation deploy --template-file dist/cloudformation.dist.yaml
     --stack-name $(STACK_NAME) \
     --region $(AWS_DEFAULT_REGION) \
     --tags $(TAGS) \
+    --parameter-overrides \
+      PROJECT=$(PROJECT) \
+      ENVIRONMENT=$(ENVIRONMENT)
     --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
     --s3-bucket $(ARTIFACTS_BUCKET)
 
