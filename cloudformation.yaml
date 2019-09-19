@@ -10,10 +10,11 @@ Parameters:
     Type: String
 
 Resources:
-  Type: AWS::Serverless::Function
-  Properties:
-    FunctionName: !Sub ${PROJECT}-${ENVIRONMENT}
-    Handler: src/index.handler
-    Runtime: nodejs10.x
-    MemorySize: 128
-    Timeout: 5
+  VersionLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${PROJECT}-${ENVIRONMENT}
+      Handler: src/index.handler
+      Runtime: nodejs10.x
+      MemorySize: 128
+      Timeout: 5
