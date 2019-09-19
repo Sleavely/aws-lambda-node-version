@@ -14,7 +14,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: !Sub ${PROJECT}-${ENVIRONMENT}
-      Handler: src/index.handler
+      CodeUri: ./dist/src/
+      Handler: index.handler
       Runtime: nodejs10.x
       MemorySize: 128
       Timeout: 5
