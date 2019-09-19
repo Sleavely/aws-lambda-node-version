@@ -8,7 +8,7 @@ ARTIFACTS_BUCKET = irish-luck # You probably want to change this.
 STACK_NAME = $(PROJECT)-$(ENVIRONMENT)
 
 package = aws cloudformation package \
-    --template-file cloudformation.yml \
+    --template-file cloudformation.yaml \
     --output-template-file dist/cloudformation.dist.yaml \
     --s3-bucket $(ARTIFACTS_BUCKET) \
     --s3-prefix $(STACK_NAME)
