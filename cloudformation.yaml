@@ -4,8 +4,8 @@ Transform: AWS::Serverless-2016-10-31
 
 Resources:
   Type: AWS::Serverless::Function
-    Properties:
-      Handler: src/index.handler
-      Runtime: nodejs10.x
-      MemorySize: 128
-      Timeout: 5
+  Properties:
+    Handler: src/index.handler
+    Runtime: nodejs10.x
+    MemorySize: 128
+    Timeout: 5
