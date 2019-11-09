@@ -37,7 +37,7 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       Name: !Sub ${PROJECT}-${ENVIRONMENT}
-      StageName: !Ref Environment
+      StageName: !Ref ENVIRONMENT
       Cors:
         AllowMethods: "'GET, OPTIONS'"
         AllowHeaders: "'Accept,Content-Type'"
