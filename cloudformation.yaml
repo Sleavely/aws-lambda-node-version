@@ -1,4 +1,4 @@
-  
+
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
@@ -8,6 +8,11 @@ Parameters:
     Default: dev
   PROJECT:
     Type: String
+  DOMAIN_NAME:
+    Type: String
+  BASE_PATH:
+    Type: String
+    Default: node10-version
 
 Resources:
   VersionLambda:
@@ -19,3 +24,29 @@ Resources:
       Runtime: nodejs10.x
       MemorySize: 128
       Timeout: 5
+      Events:
+        HttpReqs:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiDeployment
+            Path: /
+            Method: GET
+
+  # Api Gateway
+  ApiDeployment:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: !Sub ${PROJECT}-${ENVIRONMENT}
+      StageName: !Ref Environment
+      Cors:
+        AllowMethods: "'GET, OPTIONS'"
+        AllowHeaders: "'Accept,Content-Type'"
+        AllowOrigin: "'*'"
+
+  BasePath:
+    Type: AWS::ApiGateway::BasePathMapping
+    Properties:
+      BasePath: !Ref BASE_PATH
+      DomainName: !Ref DOMAIN_NAME
+      RestApiId: !Ref ApiDeployment
+      Stage: !Ref ApiDeployment.Stage

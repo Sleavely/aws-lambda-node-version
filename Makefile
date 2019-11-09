@@ -4,8 +4,11 @@ AWS_DEFAULT_REGION ?= eu-west-1
 BRANCH_NAME = "$(shell git branch | grep \* | cut -d ' ' -f2- | sed -E -e 's/\(|\)//g')"
 COMMIT_HASH = $(shell git log -1 --format=%h)
 TAGS = Environment=$(ENVIRONMENT) Project=$(PROJECT) GitBranch=$(BRANCH_NAME) GitCommit=$(COMMIT_HASH)
-ARTIFACTS_BUCKET = irish-luck # You probably want to change this.
 STACK_NAME = $(PROJECT)-$(ENVIRONMENT)
+
+# You probably want to change these
+ARTIFACTS_BUCKET = irish-luck
+DOMAIN_NAME ?= localhost
 
 package = aws cloudformation package \
     --template-file cloudformation.yaml \
