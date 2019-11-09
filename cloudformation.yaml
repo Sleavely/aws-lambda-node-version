@@ -12,7 +12,7 @@ Parameters:
     Type: String
   BASE_PATH:
     Type: String
-    Default: node10-version
+    Default: node10
 
 Resources:
   VersionLambda:
