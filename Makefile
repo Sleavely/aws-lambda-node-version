@@ -23,6 +23,7 @@ deploy = aws cloudformation deploy --template-file dist/cloudformation.dist.yaml
     --parameter-overrides \
       PROJECT=$(PROJECT) \
       ENVIRONMENT=$(ENVIRONMENT) \
+      DOMAIN=$(DOMAIN) \
     --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
     --s3-bucket $(ARTIFACTS_BUCKET)
 
