@@ -32,6 +32,12 @@ Resources:
             Path: /
             Method: GET
 
+  VersionLambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${VersionLambda}
+      RetentionInDays: 90
+
   # Api Gateway
   ApiDeployment:
     Type: AWS::Serverless::Api
