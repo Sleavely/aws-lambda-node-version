@@ -8,11 +8,11 @@ Parameters:
     Default: dev
   PROJECT:
     Type: String
-  DOMAIN_NAME:
+  DOMAIN:
     Type: String
-  BASE_PATH:
+  BASEPATH:
     Type: String
-    Default: node10
+    Default: node10-version
 
 Resources:
   VersionLambda:
@@ -46,7 +46,7 @@ Resources:
   BasePath:
     Type: AWS::ApiGateway::BasePathMapping
     Properties:
-      BasePath: !Ref BASE_PATH
-      DomainName: !Ref DOMAIN_NAME
+      BasePath: !Ref BASEPATH
+      DomainName: !Ref DOMAIN
       RestApiId: !Ref ApiDeployment
       Stage: !Ref ApiDeployment.Stage

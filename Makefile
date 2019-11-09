@@ -8,7 +8,7 @@ STACK_NAME = $(PROJECT)-$(ENVIRONMENT)
 
 # You probably want to change these
 ARTIFACTS_BUCKET = irish-luck
-DOMAIN_NAME ?= localhost
+DOMAIN ?= localhost
 
 package = aws cloudformation package \
     --template-file cloudformation.yaml \
