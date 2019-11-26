@@ -1,14 +1,14 @@
 {
-  "name": "aws-lambda-node10-version",
+  "name": "aws-lambda-node-version",
   "version": "1.0.0",
-  "description": "A Lambda for returning the currently deployed version of NodeJS in the 10.x runtime",
+  "description": "Lambdas for returning the currently deployed version of NodeJS in the *.x runtimes",
   "main": "index.js",
   "scripts": {},
-  "repository": "Sleavely/aws-lambda-node10-version",
+  "repository": "Sleavely/aws-lambda-node-version",
   "keywords": [],
   "author": "Joakim Hedlund <contact@joakimhedlund.com>",
   "license": "MIT",
-  "homepage": "https://github.com/Sleavely/aws-lambda-node10-version",
+  "homepage": "https://github.com/Sleavely/aws-lambda-node-version",
   "devDependencies": {
     "eslint": "^5.13.0",
     "eslint-config-standard": "^12.0.0",
