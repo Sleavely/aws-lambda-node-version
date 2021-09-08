@@ -55,7 +55,7 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/lambda/${Version10Lambda}
-      RetentionInDays: 90
+      RetentionInDays: 30
 
   # node12.x
   Version12Lambda:
@@ -79,4 +79,28 @@ Resources:
     Type: AWS::Logs::LogGroup
     Properties:
       LogGroupName: !Sub /aws/lambda/${Version12Lambda}
-      RetentionInDays: 90
+      RetentionInDays: 30
+
+  # node14.x
+  Version14Lambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub ${PROJECT}-14-${ENVIRONMENT}
+      CodeUri: ./dist/src/
+      Handler: index.handler
+      Runtime: nodejs14.x
+      MemorySize: 128
+      Timeout: 5
+      Events:
+        HttpReqs:
+          Type: Api
+          Properties:
+            RestApiId: !Ref ApiDeployment
+            Path: /14
+            Method: GET
+
+  Version14LambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${Version14Lambda}
+      RetentionInDays: 30
