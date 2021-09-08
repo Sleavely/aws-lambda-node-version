@@ -25,7 +25,8 @@ deploy = aws cloudformation deploy --template-file dist/cloudformation.dist.yaml
       ENVIRONMENT=$(ENVIRONMENT) \
       DOMAIN=$(DOMAIN) \
     --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
-    --s3-bucket $(ARTIFACTS_BUCKET)
+    --s3-bucket $(ARTIFACTS_BUCKET) \
+    --s3-prefix $(STACK_NAME)
 
 deploy:
 	@echo "Resetting dist directory"
